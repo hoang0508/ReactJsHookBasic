@@ -1,6 +1,5 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Nav from "./views/Nav";
 
 // template + logic
 // JSX
@@ -14,7 +13,6 @@ function App() {
   let link = "https://github.com/hoang0508/ReactJsHookBasic";
   return (
     <div className="App">
-      <Nav />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>

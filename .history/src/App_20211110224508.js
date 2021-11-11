@@ -16,15 +16,9 @@ function App() {
     { id: "todo1", title: "My school EPU", type: "hoang" },
     { id: "todo2", title: "Doing homework", type: "huy" },
   ]);
-
-  // didmount
   useEffect(() => {
     console.log("run use effect");
-  }, [address]);
-
-  useEffect(() => {
-    console.log("run use effect todo");
-  }, [todos]);
+  });
 
   const handleEventClick = (event) => {
     // setName(address); // setName re render

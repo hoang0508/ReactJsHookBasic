@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Nav from "./views/Nav";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Todo from "./views/Todo";
 // template + logic
 // JSX
@@ -16,16 +16,6 @@ function App() {
     { id: "todo1", title: "My school EPU", type: "hoang" },
     { id: "todo2", title: "Doing homework", type: "huy" },
   ]);
-
-  // didmount
-  useEffect(() => {
-    console.log("run use effect");
-  }, [address]);
-
-  useEffect(() => {
-    console.log("run use effect todo");
-  }, [todos]);
-
   const handleEventClick = (event) => {
     // setName(address); // setName re render
     // console.log("click me", name);

@@ -23,7 +23,7 @@ function App() {
   }, [address]);
 
   useEffect(() => {
-    console.log("run use effect todo");
+    console.log("run use effect");
   }, [todos]);
 
   const handleEventClick = (event) => {

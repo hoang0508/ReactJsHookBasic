@@ -3,7 +3,6 @@ import "./App.css";
 import Nav from "./views/Nav";
 import { useState, useEffect } from "react";
 import Todo from "./views/Todo";
-import Covid from "./views/covid";
 // template + logic
 // JSX
 // babel
@@ -58,7 +57,6 @@ function App() {
         <Nav />
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello word with React and {name}</h1>
-        <Covid />
         {/* <Todo
           todos={todos}
           title={"All todos"}

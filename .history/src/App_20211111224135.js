@@ -58,7 +58,6 @@ function App() {
         <Nav />
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello word with React and {name}</h1>
-        <Covid />
         {/* <Todo
           todos={todos}
           title={"All todos"}

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useFetch from "../customize/fetch";
 const Covid = () => {
   const {
-    data: dataCovid,
+    dataCovid: data,
     isloading,
     isError,
   } = useFetch(

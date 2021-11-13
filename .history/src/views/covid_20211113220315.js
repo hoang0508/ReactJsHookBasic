@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import useFetch from "../customize/fetch";
+import axios from "axios";
+import moment from "moment";
 const Covid = () => {
-  const {
-    data: dataCovid,
-    isloading,
-    isError,
-  } = useFetch(
-    "https://api.covid19api.com/country/vietnam?from=2021-10-10T00:00:00Z&to=2021-11-11T00:00:00Z"
-  );
+  const [dataCovid, setDataCovid] = useState([]);
+  const [isloading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   return (
     <>
       <h3>Covid 19 tracking in VietNam</h3>

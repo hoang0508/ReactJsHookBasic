@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import useFetch from "../customize/fetch";
 const Covid = () => {
-  const {
-    data: dataCovid,
-    isloading,
-    isError,
-  } = useFetch(
+  const [dataCovid, setDataCovid] = useState([]);
+  const [isloading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+
+  const { dataCovid, isloading, isError } = useEffect(
     "https://api.covid19api.com/country/vietnam?from=2021-10-10T00:00:00Z&to=2021-11-11T00:00:00Z"
   );
   return (

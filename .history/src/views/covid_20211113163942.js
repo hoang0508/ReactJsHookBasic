@@ -1,13 +1,31 @@
 import { useEffect, useState } from "react";
-import useFetch from "../customize/fetch";
+import axios from "axios";
+import moment from "moment";
 const Covid = () => {
-  const {
-    data: dataCovid,
-    isloading,
-    isError,
-  } = useFetch(
-    "https://api.covid19api.com/country/vietnam?from=2021-10-10T00:00:00Z&to=2021-11-11T00:00:00Z"
-  );
+  const [dataCovid, setDataCovid] = useState([]);
+  const [loading, setLoading] = useState(true);
+  // componentDidmount
+  useEffect(async () => {
+    try {
+      let reponse = await axios.get(
+        "https://1api.covid19api.com/country/vietnam?from=2021-10-10T00:00:00Z&to=2021-11-11T00:00:00Z"
+      );
+      let data = reponse && reponse.data ? reponse.data : [];
+      if (data && data.length > 0) {
+        data.map((item) => {
+          item.Date = moment(item.Date).format("DD/MM/YYYY");
+          return item;
+        });
+        data = data.reverse();
+      }
+      setDataCovid(data);
+      setLoading(false);
+    } catch (e) {
+      console.log(">>> check e", e);
+      console.log("error name", e.name);
+      console.log("error message", e.message);
+    }
+  }, []);
   return (
     <>
       <h3>Covid 19 tracking in VietNam</h3>
@@ -22,8 +40,7 @@ const Covid = () => {
           </tr>
         </thead>
         <tbody>
-          {isError === false &&
-            isloading === false &&
+          {loading === false &&
             dataCovid &&
             dataCovid.length > 0 &&
             dataCovid.map((item) => {
@@ -38,18 +55,10 @@ const Covid = () => {
               );
             })}
 
-          {isloading === true && (
+          {loading === true && (
             <tr>
               <td colSpan="5" style={{ textAlign: "center" }}>
                 Loading...
-              </td>
-            </tr>
-          )}
-
-          {isError === true && (
-            <tr>
-              <td colSpan="5" style={{ textAlign: "center" }}>
-                Something wrong ...
               </td>
             </tr>
           )}

@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 import Todo from "./views/Todo";
 import Covid from "./views/covid";
 import { Countdown, NewCountDown } from "./views/Countdown";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // template + logic
 // JSX
@@ -60,53 +61,50 @@ function App() {
     alert("times up");
   };
   return (
-    <>
-      <Router>
-        <div className="App">
-          <header className="App-header">
-            <Nav />
-            <img src={logo} className="App-logo" alt="logo" />
-          </header>
-          <Routes>
-            <Route path="/home" exact element={<Covid />} />
-            <Route
-              path="/timer"
-              element={
-                <>
-                  <Countdown onTimesup={onTimesup} />
-                  <span>===============</span>
-                  <NewCountDown onTimesup={onTimesup} />
-                </>
-              }
-            />
-            <Route
-              path="/todo"
-              exact
-              element={
-                <>
-                  <Todo
-                    todos={todos}
-                    title={"All todos"}
-                    deleteDataTodo={deleteDataTodo}
-                  />
-                  <input
-                    type="text"
-                    value={address}
-                    onChange={(event) => handleOnchangeInput(event)}
-                  />
-                  <button
-                    type="button"
-                    onClick={(event) => handleEventClick(event)}
-                  >
-                    Click me
-                  </button>
-                </>
-              }
-            />
-          </Routes>
-        </div>
-      </Router>
-    </>
+    <Route>
+      <div className="App">
+        <header className="App-header">
+          <Nav />
+          <img src={logo} className="App-logo" alt="logo" />
+          {/* <Countdown onTimesup={onTimesup} />
+          <span>===============</span>
+          <NewCountDown onTimesup={onTimesup} />
+          <h1>Hello word with React and {name}</h1>
+          <Covid /> */}
+          {/* <Todo
+          todos={todos}
+          title={"All todos"}
+          deleteDataTodo={deleteDataTodo}
+        />
+        <Todo
+          todos={todos.filter((item) => item.type === "hoang")}
+          title={"Hoang's todo"}
+          deleteDataTodo={deleteDataTodo}
+        />
+        <input
+          type="text"
+          value={address}
+          onChange={(event) => handleOnchangeInput(event)}
+        />
+        <button type="button" onClick={(event) => handleEventClick(event)}>
+          Click me
+        </button> */}
+        </header>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/users">
+            <Users />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Route>
   );
 }
 

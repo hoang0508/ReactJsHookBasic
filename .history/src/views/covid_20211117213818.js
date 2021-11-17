@@ -2,20 +2,17 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import useFetch from "../customize/fetch";
 const Covid = () => {
-  const today = moment().startOf("day").toISOString(true);
-  const priorDate = moment()
-    .startOf("day")
-    .subtract(31, "days")
-    .toISOString(true);
+  const today = new Date(new Date().setHours(0, 0, 0, 0));
+  const priorDate = moment().subtract(31, "days");
   const {
     data: dataCovid,
     isloading,
     isError,
   } = useFetch(
-    `https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${today}`
+    `https://api.covid19api.com/country/vietnam?from=${priorDate.toISOString()}&to=${today.toISOString()}`
   );
   return (
-    <>
+    <div style={{ backgroundColor: "#282c34", color: "#fff" }}>
       <h3>Covid 19 tracking in VietNam</h3>
       <table>
         <thead>
@@ -61,7 +58,7 @@ const Covid = () => {
           )}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 

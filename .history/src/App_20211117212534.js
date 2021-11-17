@@ -66,43 +66,33 @@ function App() {
           <header className="App-header">
             <Nav />
             <img src={logo} className="App-logo" alt="logo" />
+            {/* <Countdown onTimesup={onTimesup} />
+          <span>===============</span>
+          <NewCountDown onTimesup={onTimesup} />
+          <h1>Hello word with React and {name}</h1>
+          <Covid /> */}
+            {/* <Todo
+          todos={todos}
+          title={"All todos"}
+          deleteDataTodo={deleteDataTodo}
+        />
+        <Todo
+          todos={todos.filter((item) => item.type === "hoang")}
+          title={"Hoang's todo"}
+          deleteDataTodo={deleteDataTodo}
+        />
+        <input
+          type="text"
+          value={address}
+          onChange={(event) => handleOnchangeInput(event)}
+        />
+        <button type="button" onClick={(event) => handleEventClick(event)}>
+          Click me
+        </button> */}
           </header>
           <Routes>
-            <Route path="/home" exact element={<Covid />} />
-            <Route
-              path="/timer"
-              element={
-                <>
-                  <Countdown onTimesup={onTimesup} />
-                  <span>===============</span>
-                  <NewCountDown onTimesup={onTimesup} />
-                </>
-              }
-            />
-            <Route
-              path="/todo"
-              exact
-              element={
-                <>
-                  <Todo
-                    todos={todos}
-                    title={"All todos"}
-                    deleteDataTodo={deleteDataTodo}
-                  />
-                  <input
-                    type="text"
-                    value={address}
-                    onChange={(event) => handleOnchangeInput(event)}
-                  />
-                  <button
-                    type="button"
-                    onClick={(event) => handleEventClick(event)}
-                  >
-                    Click me
-                  </button>
-                </>
-              }
-            />
+            <Route path="/" element={<Home />} />
+            <Route path="users/*" element={<Users />} />
           </Routes>
         </div>
       </Router>

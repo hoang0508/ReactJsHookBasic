@@ -68,7 +68,7 @@ function App() {
             <img src={logo} className="App-logo" alt="logo" />
           </header>
           <Routes>
-            <Route path="/home" exact element={<Covid />} />
+            <Route path="/" exact element={<Covid />} />
             <Route
               path="/timer"
               element={

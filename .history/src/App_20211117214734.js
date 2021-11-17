@@ -66,40 +66,34 @@ function App() {
           <header className="App-header">
             <Nav />
             <img src={logo} className="App-logo" alt="logo" />
+            {/* <Todo
+          todos={todos}
+          title={"All todos"}
+          deleteDataTodo={deleteDataTodo}
+        />
+        <Todo
+          todos={todos.filter((item) => item.type === "hoang")}
+          title={"Hoang's todo"}
+          deleteDataTodo={deleteDataTodo}
+        />
+        <input
+          type="text"
+          value={address}
+          onChange={(event) => handleOnchangeInput(event)}
+        />
+        <button type="button" onClick={(event) => handleEventClick(event)}>
+          Click me
+        </button> */}
           </header>
           <Routes>
-            <Route path="/home" exact element={<Covid />} />
+            <Route path="/" element={<Covid />} />
             <Route
-              path="/timer"
+              path="users/*"
               element={
                 <>
                   <Countdown onTimesup={onTimesup} />
                   <span>===============</span>
                   <NewCountDown onTimesup={onTimesup} />
-                </>
-              }
-            />
-            <Route
-              path="/todo"
-              exact
-              element={
-                <>
-                  <Todo
-                    todos={todos}
-                    title={"All todos"}
-                    deleteDataTodo={deleteDataTodo}
-                  />
-                  <input
-                    type="text"
-                    value={address}
-                    onChange={(event) => handleOnchangeInput(event)}
-                  />
-                  <button
-                    type="button"
-                    onClick={(event) => handleEventClick(event)}
-                  >
-                    Click me
-                  </button>
                 </>
               }
             />

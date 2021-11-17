@@ -4,9 +4,7 @@ import Nav from "./views/Nav";
 import { useState, useEffect } from "react";
 import Todo from "./views/Todo";
 import Covid from "./views/covid";
-import { Countdown, NewCountDown } from "./views/Countdown";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import { Countdown, newCountDown } from "./views/Countdown";
 // template + logic
 // JSX
 // babel
@@ -60,53 +58,35 @@ function App() {
     alert("times up");
   };
   return (
-    <>
-      <Router>
-        <div className="App">
-          <header className="App-header">
-            <Nav />
-            <img src={logo} className="App-logo" alt="logo" />
-          </header>
-          <Routes>
-            <Route path="/home" exact element={<Covid />} />
-            <Route
-              path="/timer"
-              element={
-                <>
-                  <Countdown onTimesup={onTimesup} />
-                  <span>===============</span>
-                  <NewCountDown onTimesup={onTimesup} />
-                </>
-              }
-            />
-            <Route
-              path="/todo"
-              exact
-              element={
-                <>
-                  <Todo
-                    todos={todos}
-                    title={"All todos"}
-                    deleteDataTodo={deleteDataTodo}
-                  />
-                  <input
-                    type="text"
-                    value={address}
-                    onChange={(event) => handleOnchangeInput(event)}
-                  />
-                  <button
-                    type="button"
-                    onClick={(event) => handleEventClick(event)}
-                  >
-                    Click me
-                  </button>
-                </>
-              }
-            />
-          </Routes>
-        </div>
-      </Router>
-    </>
+    <div className="App">
+      <header className="App-header">
+        <Nav />
+        <img src={logo} className="App-logo" alt="logo" />
+        <Countdown onTimesup={onTimesup} />
+        <hr />
+        <newCountDown />
+        <h1>Hello word with React and {name}</h1>
+        <Covid />
+        {/* <Todo
+          todos={todos}
+          title={"All todos"}
+          deleteDataTodo={deleteDataTodo}
+        />
+        <Todo
+          todos={todos.filter((item) => item.type === "hoang")}
+          title={"Hoang's todo"}
+          deleteDataTodo={deleteDataTodo}
+        />
+        <input
+          type="text"
+          value={address}
+          onChange={(event) => handleOnchangeInput(event)}
+        />
+        <button type="button" onClick={(event) => handleEventClick(event)}>
+          Click me
+        </button> */}
+      </header>
+    </div>
   );
 }
 

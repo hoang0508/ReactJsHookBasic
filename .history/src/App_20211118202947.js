@@ -6,8 +6,6 @@ import Todo from "./views/Todo";
 import Covid from "./views/covid";
 import { Countdown, NewCountDown } from "./views/Countdown";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Blog from "./views/Block";
-import DetailsBlog from "./views/Detailblog";
 
 // template + logic
 // JSX
@@ -105,8 +103,6 @@ function App() {
                 </>
               }
             />
-            <Route exact path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<DetailsBlog />} />
           </Routes>
         </div>
       </Router>

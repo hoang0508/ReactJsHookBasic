@@ -1,0 +1,6 @@
+.single {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px;
+  border: 1px solid #ccc;
+}

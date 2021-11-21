@@ -1,0 +1,10 @@
+.single {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px;
+  margin: 0 20px;
+  &-blog {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+}

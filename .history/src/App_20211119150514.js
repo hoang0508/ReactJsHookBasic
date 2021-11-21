@@ -105,8 +105,8 @@ function App() {
                 </>
               }
             />
-            <Route exact path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<DetailsBlog />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog:id" element={<DetailsBlog />} />
           </Routes>
         </div>
       </Router>
